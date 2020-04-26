@@ -1,0 +1,12 @@
+pipeline {
+   agent any
+
+   stages {
+      stage('source code management') {
+         steps {
+             checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/rakh-prashant/maven.git']]])
+            
+         }
+      }
+   }
+}
